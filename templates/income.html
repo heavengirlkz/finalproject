@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Income</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Manage Income</h2>
+        <form action="{{ url_for('manage_income') }}" method="POST">
+            <label for="income">Income Description:</label>
+            <input type="text" name="income" id="income" required>
+
+            <label for="amount">Amount (in Tenge):</label>
+            <input type="number" name="amount" id="amount" required>
+    <label for="date">Date:</label>
+    <input type="date" name="date" id="date" required>
+            <button type="submit">Add Income</button>
+
+        </form>
+
+        <h3>All Income</h3>
+        <ul>
+            {% for inc in income %}
+            <li>{{ inc.description }} - {{ inc.amount }} Tenge</li>
+            {% endfor %}
+        </ul>
+
+        <a href="{{ url_for('home') }}">Back to Home</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Expenses</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Manage Expenses</h2>
+        <form action="{{ url_for('manage_expenses') }}" method="POST">
+            <label for="expense">Expense Description:</label>
+            <input type="text" name="expense" id="expense" required>
+
+            <label for="amount">Amount (in Tenge):</label>
+            <input type="number" name="amount" id="amount" required>
+
+
+                <label for="date">Date:</label>
+    <input type="date" name="date" id="date" required>
+    <button type="submit">Add Expense</button>
+        </form>
+
+        <h3>All Expenses</h3>
+        <ul>
+            {% for exp in expenses %}
+            <li>{{ exp.description }} - {{ exp.amount }} Tenge</li>
+            {% endfor %}
+        </ul>
+
+        <a href="{{ url_for('home') }}">Back to Home</a>
+    </div>
+</body>
+</html>

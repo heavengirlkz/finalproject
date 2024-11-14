@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Tax Calculator</h2>
+        <form action="{{ url_for('tax_calculator') }}" method="POST">
+            <label for="income_value">Your Income (in Tenge):</label>
+            <input type="number" name="income_value" id="income_value" required>
+
+            <label for="tax_percentage">Tax Percentage (%):</label>
+            <input type="number" name="tax_percentage" id="tax_percentage" required>
+
+            <button type="submit">Calculate Tax</button>
+        </form>
+
+        <h3>Calculated Tax: {{ tax_amount }} Tenge</h3>
+
+        <a href="{{ url_for('home') }}">Back to Home</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Finance Tracker</h1>
+        <h2>Overview</h2>
+        <p>Total Income: {{ income }} Tenge</p>
+        <p>Total Expenses: {{ expenses }} Tenge</p>
+        <p>Remaining Budget: {{ budget }} Tenge</p>
+
+        <a href="{{ url_for('manage_expenses') }}">Manage Expenses</a> |
+        <a href="{{ url_for('manage_income') }}">Manage Income</a> |
+        <a href="{{ url_for('show_analysis') }}">View Analysis</a> |
+        <a href="{{ url_for('tax_calculator') }}">Tax Calculator</a>
+    </div>
+</body>
+</html>
